@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tic Tac Toe</title>
+  <style>
+
+body {
+      background-color: #f2f2f2;
+      background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fskeleton-background&psig=AOvVaw1LMbzxhe9488XQ1FYceybm&ust=1684994339447000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCMicqJ2jjf8CFQAAAAAdAAAAABA8");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+      width: 300px;
+      margin: 20px auto;
+
+      
+    }
+
+    .cell {
+      background-color: lightblue;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 50px;
+      font-family: "Comic Sans MS", sans-serif;
+      color: black;
+      cursor: pointer;
+    }
+
+
+    .cell {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #333;
+      font-size: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .cell:hover {
+      background-color: lightgreen;
+    }
+
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body style = "background-color: bisque;" ></body>
+<body>
+  <h1>Tic Tac Toe</h1>
+  <div class="container">
+    <div class="board">
+      <div class="cell" onclick="makeMove(0)"></div>
+      <div class="cell" onclick="makeMove(1)"></div>
+      <div class="cell" onclick="makeMove(2)"></div>
+      <div class="cell" onclick="makeMove(3)"></div>
+      <div class="cell" onclick="makeMove(4)"></div>
+      <div class="cell" onclick="makeMove(5)"></div>
+      <div class="cell" onclick="makeMove(6)"></div>
+      <div class="cell" onclick="makeMove(7)"></div>
+      <div class="cell" onclick="makeMove(8)"></div>
+    </div>
+    <button onclick="resetBoard()">Reset</button>
+  </div>
+  <script>
+    let board = ['', '', '', '', '', '', '', '', ''];
+    let currentPlayer = 'X';
+    const cells = document.querySelectorAll('.cell');
+
+    function makeMove(index) {
+      if (board[index] === '') {
+        board[index] = currentPlayer;
+        cells[index].innerText = currentPlayer;
+        checkWin();
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+      }
+    }
+
+    function checkWin() {
+      const winningCombinations = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+      ];
+
+      for (let combination of winningCombinations) {
+        const [a, b, c] = combination;
+        if (board[a] !== '' && board[a] === board[b] && board[a] === board[c]) {
+          alert('Player ' + currentPlayer + ' wins!');
+          resetBoard();
+          return;
+        }
+      }
+
+      if (!board.includes('')) {
+        alert('It\'s a tie!');
+        resetBoard();
+      }
+    }
+
+    function resetBoard() {
+      board = ['', '', '', '', '', '', '', '', ''];
+      currentPlayer = 'X';
+      cells.forEach(cell => cell.innerText = '');
+    }
+  </script>
+</body>
+</html>

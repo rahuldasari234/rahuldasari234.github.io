@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Photo Album</title>
+    <style>
+        lable{
+            text-align: center;
+        }
+         .red {
+        color: rgb(50, 68, 205);
+      }
+
+        h1{
+            text-align:center
+        }
+        h1{
+            font size: 100px;
+        }
+        h2{
+            text-align:center
+
+        }
+      .photo-album {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 10px;
+      }
+      .photo {
+        width: 90%;
+        height: 90%;
+        overflow: hidden;
+      }
+      .photo img {
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        border-radius: 10px;
+      }
+      .photo:hover img {
+        transform: scale(1.3,1.3);
+        transition: .3s transform;
+      }
+
+    </style>
+  </head>
+  <body style = "background-color: bisque;" ></body>
+
+    <input type="radio" name="photos" id="check1" checked>
+    <input type="radio" name="photos" id="check2">
+    <input type="radio" name="photos" id="check3">
+    
+    
+    <div class ="container" div>
+        <h1>PHOTO GALLERY</h1>
+        <div class="top-content" div>
+        <h3>Photo Gallery </h3>
+
+
+        <label for="check1"> Super Cars</label>
+        <label for="check2">supers Bikes</label>
+        <label for="check3">fighter jets</label>
+       
+
+        <div class="photo-gallery"></div>
+
+
+
+    <h2 onmouseover="makered(this)" onmouseout="makeBlack(this)">My Car Collection</h2>
+    
+    <script>
+      function makered(element) {
+        element.classList.add("red");
+      }
+
+      function makeBlack(element) {
+        element.classList.remove("red");
+      }
+    </script>
+
+    <div class="photo-album">
+      <div class="photo"><img src="D:\R.Dasari\wallpapers\1.jpg" alt="Photo 1"></div>
+
+      <div class="photo"><img src= "D:\R.Dasari\wallpapers\2.jpg" alt="Photo 2"></div>
+      <div class="photo"><img src= "D:\R.Dasari\wallpapers\3.jpg" alt="Photo 3"></div>
+      <div class="photo"><img src= "D:\R.Dasari\wallpapers\4.jpg" alt="Photo 4"></div>
+      <div class="photo"><img src= "D:\R.Dasari\wallpapers\5.jpg" alt="Photo 5"></div>
+      <div class="photo"><img src= "D:\R.Dasari\wallpapers\6.jpg" alt="Photo 6"></div>
+      <div class="photo"><img src= "D:\R.Dasari\wallpapers\7.jpg" alt="Photo 7"></div>
+      <div class="photo"><img src="D:\R.Dasari\wallpapers\8.jpg" alt="Photo 8"></div>
+      <div class="photo"><img src= "D:\R.Dasari\wallpapers\wp4210159.webp" alt="Photo 9"></div>
+    </div>
+  </body>
+</html>
